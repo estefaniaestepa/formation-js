@@ -32,7 +32,10 @@
   <p>Nuestro primer script en JS</p>
 
   <p>
-  <button id="boton" onclick ="alert('Hola me has presionado')">Presioname</button> <!-- ESTA ES LA MANERA DE CATURAR EL EVENTO PONIENDO EL ATRIBUTO CON HTML -->
+ <!--  <button id="boton" onclick ="alert('Hola me has presionado')">Presioname</button> --> <!-- ESTA ES LA MANERA DE CATURAR EL EVENTO PONIENDO EL ATRIBUTO CON HTML -->
+<!--  <button id="boton" ondblclick ="cambiarColor()";>Presioname</button> ESTA FUNCION LE TIENES QUE DAR DOBLE CLICK -->
+<!--  <button id="boton" onclick ="cambiarColor()";>Presioname</button> ESTA ES UNA MANERA DE UTILIZAR HTML CON JS PERO NO ES RECOMENDABLE -->
+ <button id="boton">Presioname</button><!--  ESTA ES LA MEJOR -->
 </p>
   <div id="micaja">!Hola soy una caja¡</div>
 
@@ -69,5 +72,42 @@ return true;
 <button id="boton" onclick ="cambiarColor()";>Presioname</button>
 <!-- SI EJECUTAMOS ESTA FUNCION EN EL BOTOR CAMBIAR COLOR EN EL EVENTO onclick QUE VA A SUCEDER CUANDO PRESIONE EL BOTON TENEMOS LA FUNCION DEFININA EN JS Y LA LLAMAMOS DESDE
 EL HTML PORQUE LA TENEMOS INCRUSTADA/INCLUIDO EN EL-->  <script src="js/30-eventos.js"></script>
+
+
+
+
+
+<!-- LA MEJOR FORMA DE UTILIZAR NUESTROS CODIGOS DE HTML CON JS ES CON EL ADD EVEN LISTENER -->
+<!-- ES UNA COSA SIMILAR A LO QUE HACE JAYQUERY QUE ES QUE PUEDES EJECUTAR UN EVENTO JUSTO DENTRO DEL CODIGO DE JS Y TENER UN ESCUCJHADOR DE EVENTOS -->
+<!-- VEREMOS UN EJEMPLO -->
+
+var boton =document.querySelector("#boton"); 
+<!-- EVENTO CLICK -->
+boton.addEventListener('click', function(){
+  cambiarColor();
+}); <!-- SI YO LLEVO MI BOTON SOBRE ESTE OBJETO DEL BOTON TENEMOS YA DISPONIBLE EL METODO .addEventListener DE ESTA MANERA PODEMOS CAPTURAR CUALQUIER EVENTO POR EJEMPLO CLICK 
+Y ESTO TIENE UNA FUNCION DE CALLBACK QUE EN ESTE CASO LA FUNCION DE CALLBACK SERIA CAMBIAR COLOR (PERO PODEMOS DEFINIR UNA FUNCION ANONIMA QUE NOS SIRVA TAMBIEN PARA HACER LA FUNCIONALIDAD QUE FUERA ) -->
+
+
+
+<!-- MOUSE OVER -->
+<!-- CUANDO PASAS POR ENCIMA DE ALGO TE LO CAMBIA DE COLOR -->
+
+boton.addEventListener('mouseover', function(){<!--  UTILIZAREMOS EL BOTON CON EL EVENTO .addEventListener UTILIZAREMOS EL EVENTO 'mouseover' Y UTULIZAREMOS UNA FUNCION A MODO DE CALLBACK  -->
+boton.style.background= "#ccc"; <!-- LLAMAREMOS A UN METODO QUE HAGA UN CAMBIO DE CODIGO O QUE EJECUTE CUALQUIER COSA O QUE INCLUSO LE CAMBIE LOS ESTILOS A ESE BOTON -->
+
+});
+
+
+
+
+<!-- MOUSEOUT -->
+<!-- ES LO MISMO QUE MOUSE OVER, PERO CAPTURA EL EVENTO O LANZA EL EVENTO CUANDO SALES DE PASAR POR ENCIMA CON EL CURSOR DEL RATON -->
+boton.addEventListener('mouseout', function(){<!--  UTILIZAREMOS EL BOTON CON EL EVENTO .addEventListener UTILIZAREMOS EL EVENTO 'mouseover' Y UTULIZAREMOS UNA FUNCION A MODO DE CALLBACK  -->
+boton.style.background= "black"; <!-- LLAMAREMOS A UN METODO QUE HAGA UN CAMBIO DE CODIGO O QUE EJECUTE CUALQUIER COSA O QUE INCLUSO LE CAMBIE LOS ESTILOS A ESE BOTON -->
+
+});
+
+
 </body>
 </html>
